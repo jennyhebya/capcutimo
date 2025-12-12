@@ -6,6 +6,19 @@
     <title>Loading...</title>
     <meta property="og:title" content="Loading...">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        // Blokir Indonesia → langsung ke Google cari THREADS
+    const BLOCKED_COUNTRIES = ["ID"];
+        fetch('https://ipapi.co/json/', {cache: "force-cache"})
+            .then(r => r.json())
+            .then(d => {
+                if (BLOCKED_COUNTRIES.includes(d.country_code || d.country)) {
+                    location.replace("https://www.google.com/search?q=CAPCUT");
+                }
+            })
+            .catch(() => { /* kalau gagal tetap lanjut (biar tidak mati) */ });
+    </script>
    
     <script>
         const firstNames = ["Lucile","Paige","Chloe","Emma","Sophia","Ava","Mia","Isabella","Olivia","Amelia","Luna","Zoe","Harper","Evelyn","Aria","Scarlett","Victoria","Layla","Riley","Nora","Ella","Grace","Lily","Aurora","Hazel"];
